@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Source Map Inspector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+
+      .space {
+          color: #ccc;
+      }
+      .identifier {
+        color: #333;
+      }
+      .keyword {
+        color: #09d;
+      }
+      .string {
+        color: #d70;
+      }
+      .number {
+        color: #f60;
+      }
+      .regexp {
+        color: #660;
+      }
+
+      #display {
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin: 0;
+          padding: 0;
+
+          border: solid 1px black;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="assets/js/require-simple.js"></script>
+    <script>require.paths.unshift("assets/js")</script>
+    <script src="source-map-inspector.js"></script>
+  </head>
+  <body>
+  <div class="container">
+      <header>
+      <h1>Source Map Inspector</h1>
+      </header>
+      <div class="row-fluid">
+      <pre class="span5 linenums" id="original"></pre>
+      <pre class="span5 linenums" id="generated"></pre>
+      </div>
+      <canvas id="display"></canvas>
+  </div><!-- container -->
+  <body>
+</html>
+<!-- vim: set tabstop=2 : -->
