@@ -11,7 +11,7 @@ window.addEventListener('load', function (e) {
 		var valueL = elem.offsetWidth  >> 1;
 		var valueT = elem.offsetHeight >> 1;
 
-		// accumulate 
+		// accumulate
 		do {
 		  valueT += elem.offsetTop  || 0;
 		  valueL += elem.offsetLeft || 0;
@@ -42,7 +42,7 @@ window.addEventListener('load', function (e) {
 				replace(/</g, "&lt;").
 				replace(/>/g, "&gt;")
 				;
-			
+
 			return format('<span id="%1%2" class="%3">%4</span>',
 						  prefix, tokenObject.id, tokenObject.type, s);
 		});
@@ -54,8 +54,20 @@ window.addEventListener('load', function (e) {
 
 	var orig    = Lexer.tokenize(load("foo.js"));
 	var gen     = Lexer.tokenize(load("foo.min.js"));
-	var mapping = JSON.parse(load("foo.js.mapping"));
-	
+
+	var mappingURL;
+
+	if(gen[gen.length-1].type === "space") {
+		m = gen[gen.length-1].token.
+			match(/\@ *sourceMappingURL=([^ \t\r\n]+)/);
+		if(!m) {
+			alert("sourceMappingURL is not found");
+			return;
+		}
+		mappingURL = m[1];
+	}
+	var mapping = JSON.parse(load(mappingURL));
+
 	var colorMapping = {
 		identifier: "#333",
 		keyword:    "#09d",
@@ -74,10 +86,10 @@ window.addEventListener('load', function (e) {
 	var consumer = new sourceMap.SourceMapConsumer(mapping);
 
 	var canvas = element('display');
-	
+
 	canvas.width  = document.documentElement.offsetWidth - 10;
 	canvas.height = document.documentElement.offsetHeight;
-	
+
 	var cx = canvas.getContext("2d");
 
 	var original = [];

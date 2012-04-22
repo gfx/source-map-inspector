@@ -69,7 +69,7 @@ var keywords = [
 	"||", "&&"
 ];
 
-var rxSpace          = rx("^" + makeAlt([comment, whiteSpace]));
+var rxSpace          = rx("^" + makeAlt([comment, whiteSpace]) + "+");
 var rxIdent          = rx("^" + ident);
 var rxStringLiteral  = rx("^" + stringLiteral);
 var rxNumberLiteral  = rx("^" + makeAlt([numberLiteral, integerLiteral]));
