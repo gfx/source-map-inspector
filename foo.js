@@ -1,3 +1,4 @@
+// original source code
 (function() {
   "use strict";
 
@@ -33,11 +34,13 @@
 
   /** @type {!Point} */
   var one = new Point(-2, 1);
+  
   /** @type {!Point} */
   var another = new Point(1, 5);
 
   console.log("Distance of " + one +
               " to " + another + ":");
+
   console.log(one.distance(another));
 }());
 
