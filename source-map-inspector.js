@@ -49,11 +49,10 @@ window.addEventListener('load', function (e) {
 		return "<code>" + elements.join("") + "</code>";
 	}
 
-	var Lexer = require("ecma262-lexer");
+	var Lexer = require("jslexer");
 	require("source-map");
 
-	var orig    = Lexer.tokenize(load("foo.js"));
-	var gen     = Lexer.tokenize(load("foo.min.js"));
+	var gen  = Lexer.tokenize("foo.gen.js", load("foo.gen.js"));
 
 	var mappingURL;
 
@@ -68,6 +67,7 @@ window.addEventListener('load', function (e) {
 	}
 	var mapping = JSON.parse(load(mappingURL));
 
+	var orig = Lexer.tokenize(mapping.sources[0], load(mapping.sources[0]));
 	var colorMapping = {
 		identifier: "#333",
 		keyword:    "#09d",
