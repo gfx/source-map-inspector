@@ -1,4 +1,4 @@
-CLOSUREC=closure
+CLOSUREC=closure-compiler
 
 
 all: foo.js
