@@ -14,34 +14,6 @@
         padding-bottom: 40px;
       }
 
-      .space {
-          color: #ccc;
-      }
-      .identifier {
-        color: #333;
-      }
-      .keyword {
-        color: #09d;
-      }
-      .string {
-        color: #d70;
-      }
-      .number {
-        color: #f60;
-      }
-      .regexp {
-        color: #660;
-      }
-
-      #display {
-          position: absolute;
-          top: 0;
-          left: 0;
-          margin: 0;
-          padding: 0;
-
-          border: solid 1px black;
-      }
     </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -57,11 +29,10 @@
       <header>
       <h1>Source Map Inspector</h1>
       </header>
-      <div class="row-fluid">
+      <div class="row-fluid" id="source" data-file="foo.gen.js">
       <pre class="span5 linenums" id="original"></pre>
       <pre class="span5 linenums" id="generated"></pre>
       </div>
-      <canvas id="display"></canvas>
   </div><!-- container -->
   <body>
 </html>
